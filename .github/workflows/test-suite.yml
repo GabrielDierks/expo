@@ -175,12 +175,6 @@ jobs:
           key: ${{ runner.os }}-modules-${{ hashFiles('yarn.lock') }}
       - name: 🧶 Install node modules in root dir
         run: yarn install --frozen-lockfile
-      - uses: actions/cache@v2
-        with:
-          path: ~/.gradle/caches
-          key: ${{ runner.os }}-gradle-${{ hashFiles('android/*.gradle*') }}
-          restore-keys: |
-            ${{ runner.os }}-gradle-
       - name: ⚛️ Display React Native config
         run: yarn react-native config
         working-directory: apps/bare-expo
